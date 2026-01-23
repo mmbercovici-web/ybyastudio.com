@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="YBYÁ STUDIO — Architecture belonging to its territory." />
+  <title>YBYÁ STUDIO — Architecture belonging to its territory</title>
+
+  <style>
+    :root{
+      /* palette */
+      --bg:#070707;
+      --ink:rgba(255,255,255,.92);
+      --soft:rgba(255,255,255,.70);
+      --muted:rgba(255,255,255,.52);
+      --faint:rgba(255,255,255,.34);
+      --hair:rgba(255,255,255,.12);
+      --hair2:rgba(255,255,255,.08);
+      --accent:rgba(164,110,88,.95); /* quiet clay */
+
+      /* layout */
+      --max:1240px;
+      --pad:32px;
+      --navH:72px;
+
+      /* type */
+      --sans: ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Helvetica, Arial, Segoe UI, Roboto;
+      --titleW:300;
+      --bodyW:400;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      background: var(--bg);
+      color:var(--ink);
+      font-family:var(--sans);
+      -webkit-font-smoothing:antialiased;
+      text-rendering:geometricPrecision;
+    }
+    a{ color:inherit; text-decoration:none; }
+    a:focus-visible{ outline:2px solid rgba(255,255,255,.22); outline-offset:3px; }
+    img{ display:block; max-width:100%; }
+
+    .container{
+      width:min(var(--max), calc(100% - (var(--pad) * 2)));
+      margin:0 auto;
+    }
+    @media (max-width:720px){
+      :root{ --pad:20px; --navH:64px; }
+    }
+
+    /* ---------- NAV (fixed, minimal, no rounding, no glass) ---------- */
+    .nav{
+      position:fixed;
+      inset:0 0 auto 0;
+      z-index:50;
+      height:var(--navH);
+      display:flex;
+      align-items:center;
+      background: linear-gradient(to bottom, rgba(0,0,0,.78), rgba(0,0,0,.44), rgba(0,0,0,0));
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:220px;
+    }
+    .wordmark{
+      font-size:13px;                 /* MORE VISIBLE */
+      letter-spacing:.28em;           /* MORE PRESENT */
+      text-transform:uppercase;
+      color:rgba(255,255,255,.94);    /* MORE CONTRAST */
+      white-space:nowrap;
+    }
+    .navlinks{
+      display:flex;
+      align-items:center;
+      gap:22px;
+      font-size:11px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.62);
+    }
+    .navlinks a{
+      padding:10px 0;
+      position:relative;
+      transition:color .18s ease;
+    }
+    .navlinks a:hover{ color:rgba(255,255,255,.90); }
+    .navlinks a.active::after{
+      content:"";
+      position:absolute;
+      left:0; right:0;
+      bottom:6px;
+      height:1px;
+      background: linear-gradient(90deg, rgba(164,110,88,0), rgba(164,110,88,.85), rgba(164,110,88,0));
+    }
+    .nav-cta{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      font-size:11px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.58);
+      white-space:nowrap;
+    }
+    .nav-cta a{
+      padding:10px 0;
+      border-bottom:1px solid rgba(255,255,255,.14);
+      transition: color .18s ease, border-color .18s ease;
+    }
+    .nav-cta a:hover{ color:rgba(255,255,255,.90); border-color:rgba(255,255,255,.30); }
+
+    @media (max-width:860px){
+      .brand{ min-width:auto; }
+      .navlinks{ gap:14px; }
+    }
+    @media (max-width:640px){
+      .navlinks{ display:none; }
+      .nav-cta{ display:none; }
+    }
+
+    /* ---------- HERO ---------- */
+    header.hero{
+      position:relative;
+      min-height: 100svh;
+      padding-top: var(--navH);
+      display:flex;
+      align-items:flex-end;
+      overflow:hidden;
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .hero-media{
+      position:absolute;
+      inset:0;
+      z-index:-2;
+      background:#000;
+    }
+    .hero-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      filter:saturate(.95) contrast(1.03);
+      transform:scale(1.02);
+    }
+    .hero-mask{
+      position:absolute;
+      inset:0;
+      z-index:-1;
+      background:
+        radial-gradient(900px 520px at 18% 58%, rgba(0,0,0,.58), rgba(0,0,0,0) 70%),
+        linear-gradient(to bottom, rgba(0,0,0,.30) 0%, rgba(0,0,0,.62) 55%, rgba(0,0,0,.90) 100%);
+      pointer-events:none;
+    }
+
+    .hero-content{
+      padding: 0 0 68px 0; /* vertical rhythm only */
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 44px;
+      align-items:end;
+    }
+    @media (max-width:980px){
+      .grid{ grid-template-columns: 1fr; gap:24px; }
+    }
+
+    /* MORE VISIBLE YBYÁ STUDIO in hero */
+    .kicker{
+      font-size:12px;                 /* up from 11 */
+      letter-spacing:.34em;           /* stronger */
+      text-transform:uppercase;
+      color:rgba(255,255,255,.86);    /* MUCH more visible */
+      margin-bottom:14px;
+    }
+
+    /* 50% smaller headline (real reduction) */
+    h1{
+      margin:0;
+      font-weight:var(--titleW);
+      font-size: clamp(22px, 2.25vw, 32px); /* was ~40-64; now ~50% */
+      line-height:1.08;
+      letter-spacing:-.01em;
+      max-width: 24ch;
+    }
+
+    .lede{
+      margin:14px 0 16px 0;
+      font-size:14px;
+      line-height:1.85;
+      color:var(--soft);
+      max-width: 62ch;
+    }
+    .meta{
+      margin:0;
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--faint);
+      line-height:1.7;
+    }
+    .scroll{
+      margin-top:18px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:10px;
+      letter-spacing:.34em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.32);
+    }
+    .scroll .line{
+      height:1px; width:56px;
+      background: rgba(255,255,255,.18);
+    }
+
+    /* Position card */
+    .position{
+      justify-self:end;
+      width:min(420px, 100%);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+      padding:18px 18px 16px;
+    }
+    .position .label{
+      font-size:10px;
+      letter-spacing:.28em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.55);
+      margin-bottom:10px;
+    }
+    .position p{
+      margin:0;
+      font-size:13.5px;
+      line-height:1.7;
+      color:rgba(255,255,255,.70);
+    }
+    .position ul{
+      margin:14px 0 0 0;
+      padding:14px 0 0 0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+      border-top:1px solid rgba(255,255,255,.10);
+    }
+    .position li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      color:rgba(255,255,255,.60);
+      font-size:12.5px;
+      line-height:1.55;
+    }
+    .position li::before{
+      content:"";
+      width:5px; height:5px;
+      margin-top:7px;
+      background: rgba(255,255,255,.22);
+      flex:0 0 auto;
+    }
+    @media (max-width:980px){
+      .position{ justify-self:start; }
+    }
+
+    /* ---------- SECTIONS ---------- */
+    section{ padding: 88px 0; }
+    .section-head{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:44px;
+      align-items:end;
+      margin-bottom: 28px;
+    }
+    @media (max-width:980px){
+      .section-head{ grid-template-columns: 1fr; gap:16px; }
+    }
+    .section-kicker{
+      font-size:11px;
+      letter-spacing:.30em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.52);
+      margin-bottom:10px;
+    }
+    .section-title{
+      margin:0;
+      font-size: 18px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.90);
+      font-weight:400;
+    }
+    .section-note{
+      margin:0;
+      font-size:14px;
+      line-height:1.9;
+      color:rgba(255,255,255,.58);
+      max-width: 56ch;
+      justify-self:end;
+    }
+    .rule{ height:1px; background:rgba(255,255,255,.08); }
+
+    /* ---------- PROJECTS (FIRST AFTER HERO) ---------- */
+    #projects{ padding-top: 84px; }
+    .projects-grid{
+      margin-top: 22px;
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    @media (max-width:1100px){ .projects-grid{ grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width:640px){ .projects-grid{ grid-template-columns: 1fr; } }
+
+    .proj{
+      position:relative;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.02);
+      overflow:hidden;
+      min-height: 420px;
+      transition: border-color .22s ease, transform .22s ease;
+    }
+    .proj:hover{
+      border-color: rgba(255,255,255,.18);
+      transform: translateY(-2px);
+    }
+    .proj .img{ position:absolute; inset:0; background:#000; }
+    .proj .img img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      filter:saturate(.95) contrast(1.03);
+      transform: scale(1.02);
+    }
+    .proj .shade{
+      position:absolute; inset:0;
+      background: linear-gradient(to bottom, rgba(0,0,0,.10) 0%, rgba(0,0,0,.40) 55%, rgba(0,0,0,.92) 100%);
+      pointer-events:none;
+    }
+    .proj .body{
+      position:absolute;
+      left:0; right:0; bottom:0;
+      padding: 18px 18px 16px;
+    }
+    .proj .tag{
+      font-size:10px;
+      letter-spacing:.28em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.52);
+      margin-bottom:8px;
+    }
+    .proj h3{
+      margin:0;
+      font-size:16px;
+      font-weight:400;
+      color:rgba(255,255,255,.92);
+      letter-spacing:.02em;
+    }
+
+    /* ---------- MANIFEST (NOW AFTER PROJECTS) ---------- */
+    #manifest{ padding-top: 88px; }
+
+    .manifest{
+      border-top:1px solid rgba(255,255,255,.06);
+      border-bottom:1px solid rgba(255,255,255,.06);
+      background: linear-gradient(to bottom, rgba(0,0,0,.88), rgba(0,0,0,.94));
+    }
+    .manifest-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:44px;
+      padding-top:18px;
+      align-items:start;
+    }
+    @media (max-width:980px){
+      .manifest-grid{ grid-template-columns: 1fr; gap:20px; }
+    }
+    .manifest p{
+      margin:0 0 16px 0;
+      color:rgba(255,255,255,.66);
+      line-height:1.95;
+      font-size:15px;
+      max-width: 72ch;
+    }
+    .principles{
+      border-left:1px solid rgba(255,255,255,.10);
+      padding-left:18px;
+      color:rgba(255,255,255,.58);
+      font-size:13px;
+      line-height:1.9;
+    }
+    @media (max-width:980px){
+      .principles{ border-left:none; padding-left:0; border-top:1px solid rgba(255,255,255,.10); padding-top:14px; }
+    }
+    .principles ul{ list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+    .principles li{ display:flex; gap:10px; }
+    .principles li::before{
+      content:"";
+      width:4px; height:4px;
+      margin-top:10px;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px rgba(164,110,88,.16);
+      flex:0 0 auto;
+    }
+
+    /* ---------- STUDIO / CONTACT ---------- */
+    .split{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:44px;
+      align-items:start;
+      margin-top: 18px;
+    }
+    @media (max-width:980px){ .split{ grid-template-columns:1fr; gap:20px; } }
+
+    .copy{
+      color:rgba(255,255,255,.66);
+      font-size:15px;
+      line-height:1.95;
+    }
+    .copy p{ margin:0 0 16px 0; }
+
+    .aside{
+      border-left:1px solid rgba(255,255,255,.10);
+      padding-left:18px;
+      color:rgba(255,255,255,.58);
+      font-size:13.5px;
+      line-height:1.9;
+    }
+    @media (max-width:980px){ .aside{ border-left:none; padding-left:0; border-top:1px solid rgba(255,255,255,.10); padding-top:14px; } }
+
+    .contact-box{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.02);
+      padding:18px;
+    }
+    .contact-actions{
+      margin-top:14px;
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      font-size:11px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.62);
+    }
+    .contact-actions a{
+      border-bottom:1px solid rgba(255,255,255,.16);
+      padding:10px 0;
+      transition: border-color .18s ease, color .18s ease;
+    }
+    .contact-actions a:hover{
+      border-color: rgba(255,255,255,.30);
+      color:rgba(255,255,255,.88);
+    }
+
+    footer{
+      padding: 34px 0 54px 0;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:rgba(255,255,255,.48);
+      font-size:12px;
+    }
+    .foot{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    :target{ scroll-margin-top: calc(var(--navH) + 18px); }
+
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto; }
+      .proj, .proj:hover{ transition:none; transform:none; }
+      .navlinks a{ transition:none; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <div class="nav" role="banner">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="wordmark">YBYÁ STUDIO</div>
+      </div>
+
+      <!-- UPDATED ORDER -->
+      <nav class="navlinks" aria-label="Primary">
+        <a href="#projects">Projects</a>
+        <a href="#manifest">Manifest</a>
+        <a href="#studio">Studio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-cta" aria-label="Quick contact">
+        <a href="mailto:contact@ybyastudio.com">Email</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero" id="top" aria-label="YBYÁ STUDIO hero">
+    <div class="hero-media" aria-hidden="true">
+      <img src="./images/hero.jpg" alt="YBYÁ STUDIO — material-first architecture" />
+    </div>
+    <div class="hero-mask" aria-hidden="true"></div>
+
+    <div class="container hero-content">
+      <div class="grid">
+        <div>
+          <div class="kicker">YBYÁ STUDIO</div>
+          <h1>Architecture belonging<br/>to its territory</h1>
+
+          <p class="lede">
+            A practice shaped by climate, ground, and daily rituals — where material becomes comfort and form is a consequence.
+          </p>
+
+          <p class="meta">
+            Brazilian coast & inland territories · Homes · Hospitality · Design & site direction
+          </p>
+
+          <div class="scroll" aria-hidden="true">
+            <span class="line"></span>
+            <span>Scroll</span>
+          </div>
+        </div>
+
+        <aside class="position" aria-label="Position">
+          <div class="label">Position</div>
+          <p>
+            Material-first architecture is not nostalgia. It is a technical stance where comfort is embedded
+            in mass, orientation, shade depth, and air paths — not added later by systems.
+          </p>
+          <ul>
+            <li>Earth, timber, stone — honest junctions.</li>
+            <li>Cross-ventilation as plan logic.</li>
+            <li>Solar protection and rain intelligence.</li>
+            <li>Courtyards and verandas as climate devices.</li>
+            <li>Lean process, high presence on site.</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROJECTS (NOW FIRST) -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Projects</div>
+        </div>
+        <p class="section-note">
+          A small selection of built and in-progress work.
+        </p>
+      </div>
+
+      <div class="rule"></div>
+
+      <div class="projects-grid" aria-label="Project list">
+        <article class="proj">
+          <div class="img"><img src="./images/project-01.jpg" alt="Villa Batu" loading="lazy"></div>
+          <div class="shade" aria-hidden="true"></div>
+          <div class="body">
+            <div class="tag">Hospitality · Java, Indonesia</div>
+            <h3>Villa Batu</h3>
+          </div>
+        </article>
+
+        <article class="proj">
+          <div class="img"><img src="./images/project-02.jpg" alt="Casa Pátio" loading="lazy"></div>
+          <div class="shade" aria-hidden="true"></div>
+          <div class="body">
+            <div class="tag">Residential · São Paulo countryside</div>
+            <h3>Casa Pátio</h3>
+          </div>
+        </article>
+
+        <article class="proj">
+          <div class="img"><img src="./images/project-03.jpg" alt="Habitart" loading="lazy"></div>
+          <div class="shade" aria-hidden="true"></div>
+          <div class="body">
+            <div class="tag">Masterplan · Brazilian coast</div>
+            <h3>Habitart</h3>
+          </div>
+        </article>
+
+        <article class="proj">
+          <div class="img"><img src="./images/project-04.jpg" alt="Villa Respira" loading="lazy"></div>
+          <div class="shade" aria-hidden="true"></div>
+          <div class="body">
+            <div class="tag">Health & Wellness</div>
+            <h3>Villa Respira</h3>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANIFEST (NOW AFTER PROJECTS) -->
+  <section class="manifest" id="manifest">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Manifest</div>
+          <h2 class="section-title">Architecture as inhabitable landscape</h2>
+        </div>
+        <p class="section-note">
+          Projects begin with the site’s physics: sun, wind, water, ground. Form follows comfort.
+        </p>
+      </div>
+
+      <div class="rule"></div>
+
+      <div class="manifest-grid">
+        <div>
+          <p>
+            We work where climate is a design tool and matter is a method. Instead of adding performance later,
+            we draw it into the section: shadow, mass, and air as primary structure.
+          </p>
+          <p>
+            The goal is not spectacle. It is a quiet precision: spaces that age well, accept weather, and keep the daily rhythm intact.
+          </p>
+        </div>
+
+        <aside class="principles" aria-label="Principles">
+          <ul>
+            <li>Thermal calm through mass and delayed heat transfer.</li>
+            <li>Openings sized for air paths, not façade composition.</li>
+            <li>Deep shade as structure: verandas, porches, galleries.</li>
+            <li>Water and topography treated as a project system.</li>
+            <li>Detailing as ethics: fewer materials, clearer assemblies.</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- STUDIO -->
+  <section id="studio">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Studio</div>
+          <h2 class="section-title">Between site, model, and landscape</h2>
+        </div>
+        <p class="section-note">
+          From early studies to site direction, with lean processes and high presence on site.
+        </p>
+      </div>
+
+      <div class="rule"></div>
+
+      <div class="split">
+        <div class="copy">
+          <p>
+            YBYÁ STUDIO works across architecture, interiors, and hospitality — with a material-first approach grounded in tropical and subtropical climates.
+          </p>
+          <p>
+            We collaborate closely with local knowledge, suppliers, and builders, shaping projects through prototypes, mockups, and precise detailing.
+          </p>
+        </div>
+
+        <div class="aside">
+          <div class="section-kicker" style="margin:0 0 10px 0;">Working method</div>
+          <div>
+            Reduction: fewer devices, clearer assemblies, stronger climates. Comfort is designed as a property of form and material — not as an afterthought.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Contact</div>
+          <h2 class="section-title">Start a conversation</h2>
+        </div>
+        <p class="section-note">
+          Share your site, timeline, and context. We respond with a clear next step.
+        </p>
+      </div>
+
+      <div class="rule"></div>
+
+      <div class="split" style="margin-top:18px;">
+        <div class="contact-box">
+          <div class="section-kicker" style="margin:0 0 8px 0;">Email</div>
+          <div class="copy" style="margin:0; color:rgba(255,255,255,.68);">
+            Reach us at <a href="mailto:contact@ybyastudio.com" style="border-bottom:1px solid rgba(255,255,255,.18); padding-bottom:2px;">contact@ybyastudio.com</a>.
+          </div>
+          <div class="contact-actions">
+            <a href="mailto:contact@ybyastudio.com">Send email</a>
+            <a href="#projects">View projects</a>
+          </div>
+        </div>
+
+        <div class="contact-box">
+          <div class="section-kicker" style="margin:0 0 8px 0;">Notes</div>
+          <div class="copy" style="margin:0; color:rgba(255,255,255,.68);">
+            If you already have a brief, include: location, climate, budget range, and desired delivery date.
+          </div>
+          <div class="contact-actions">
+            <a href="#manifest">Read manifest</a>
+            <a href="#top">Back to top</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container foot">
+      <div>© <span id="y"></span> YBYÁ STUDIO</div>
+      <div style="color:rgba(255,255,255,.34)">Material-first architecture · Brazilian territories</div>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Active nav on scroll
+    const links = Array.from(document.querySelectorAll('.navlinks a'));
+    const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+
+    const setActive = () => {
+      let idx = 0;
+      const y = window.scrollY + 160;
+      for (let i=0;i<sections.length;i++){
+        if (sections[i].offsetTop <= y) idx = i;
+      }
+      links.forEach(l => l.classList.remove('active'));
+      if (links[idx]) links[idx].classList.add('active');
+    };
+
+    window.addEventListener('scroll', () => window.requestAnimationFrame(setActive), {passive:true});
+    setActive();
+  </script>
+</body>
+</html>
