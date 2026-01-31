@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>YBYÁ Studio — Contact</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body class="">
+<header>
+  <div class="container nav">
+    <nav>
+      <a class="nav-btn" href="index.html">Home</a>
+      <a class="nav-btn" href="projects.html">Projects</a>
+      <a class="nav-btn" href="who-we-are.html">Who we are</a>
+      <a class="nav-btn" href="contact.html" aria-current="page">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+  <div class="container">
+    <div class="kicker">Contact</div>
+    <h1 class="page-title">Let’s talk</h1>
+    <div class="page-title-rule"></div>
+    <p class="lede">Short note. Clear response.</p>
+
+    <section class="block">
+      <h2 class="section-title">Email</h2>
+      <p class="p">For projects, press, and collaborations:</p>
+      <a class="email" href="mailto:contact@ybyastudio.com">contact@ybyastudio.com</a>
+    </section>
+
+    <section class="block" style="border-top:none; padding-top:0;">
+      <h2 class="section-title">Message</h2>
+      <p class="p">This form opens your email client (no backend).</p>
+
+      <form action="mailto:contact@ybyastudio.com" method="post" enctype="text/plain">
+        <input class="field" name="name" placeholder="Name" required>
+        <input class="field" name="email" type="email" placeholder="Email" required>
+        <textarea name="message" placeholder="A short message" required></textarea>
+        <button class="btn" type="submit">Send email</button>
+      </form>
+    </section>
+
+    <footer>YBYÁ STUDIO</footer>
+  </div>
+</main>
+<script src="assets/site.js" defer></script>
+</body>
+</html>
