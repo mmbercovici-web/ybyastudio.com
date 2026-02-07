@@ -1,57 +1,48 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>YBYÁ Studio — Project 09</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Project 09 — YBYÁ Studio</title>
 <link rel="stylesheet" href="assets/styles.css">
 </head>
-<body class="">
-<header>
-  <div class="container nav">
-    <nav>
-      <a class="nav-btn" href="index.html">Home</a>
-      <a class="nav-btn" href="projects.html">Projects</a>
-      <a class="nav-btn" href="who-we-are.html">Who we are</a>
-      <a class="nav-btn" href="contact.html">Contact</a>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">YBYÁ Studio</div>
+    <nav class="nav">
+      <a href="index.html" >Home</a>
+      <a href="projects.html" aria-current="page">Projects</a>
+      <a href="contact.html" >Contact</a>
     </nav>
   </div>
 </header>
 
-<main class="project-shell" aria-label="Project 09">
-  <div class="gallery">
+<main class="page-top">
+  <section class="section wrap" style="padding-bottom:24px">
+    <div class="kicker">Project</div>
+    <h1>Project 09</h1>
+  </section>
 
-      <section class="slide" aria-label="Project 09 image 1">
-        <img src="images/project-09.jpg" alt="">
-        <div class="info">
-          <div class="title">Project 09</div>
-          <div class="meta">Oman</div>
-        </div>
-      </section>
-      <section class="slide" aria-label="Project 09 image 2">
-        <img src="images/project-09.1.jpg" alt="">
-      </section>
-      <section class="slide" aria-label="Project 09 image 3">
-        <img src="images/project-09.2.jpg" alt="">
-      </section>
-      <section class="slide" aria-label="Project 09 image 4">
-        <img src="images/project-09.3.jpg" alt="">
-      </section>
-
-      <section class="slide text" aria-label="Project 09 description">
-        <div class="block" style="border-top:none; padding-top:0; margin-top:0;">
-          <div class="label">Project</div>
-          <h2>Project 09</h2>
-          <div class="meta">Oman</div>
-          <p>Replace this text with a concise description: material decisions, light, climate, and context.</p>
-          <p>Keep it short. Avoid marketing language.</p>
-        </div>
-      </section>
-  </div>
+  <section class="fullbleed">
+    <div style="width:100%;aspect-ratio:16/10;position:relative">
+      <img src="images/projects/project-09.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    </div>
+  </section>
 </main>
-<script src="assets/site.js" defer></script>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <img src="images/projects/logo.png" alt="YBYÁ Studio">
+    </div>
+    <div class="footer-right">
+      <a href="https://instagram.com/ybyastudio" target="_blank" rel="noreferrer">Instagram</a>
+      <a href="mailto:contact@ybyastudio.com">contact@ybyastudio.com</a>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
