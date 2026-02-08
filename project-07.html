@@ -1,48 +1,58 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Project 07 — YBYÁ Studio</title>
-<link rel="stylesheet" href="assets/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Casa da mata — YBYÁ Studio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-
-<header class="site-header">
-  <div class="header-inner">
-    <div class="brand">YBYÁ Studio</div>
-    <nav class="nav">
-      <a href="index.html" >Home</a>
-      <a href="projects.html" aria-current="page">Projects</a>
-      <a href="contact.html" >Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main class="page-top">
-  <section class="section wrap" style="padding-bottom:24px">
-    <div class="kicker">Project</div>
-    <h1>Project 07</h1>
-  </section>
-
-  <section class="fullbleed">
-    <div style="width:100%;aspect-ratio:16/10;position:relative">
-      <img src="images/projects/project-07.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="YBYÁ Studio home">
+        <img src="images/logo.png" alt="">
+        <div class="wordmark">YBYÁ STUDIO</div>
+      </a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
-  </section>
-</main>
+  </header>
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-left">
-      <img src="images/projects/logo.png" alt="YBYÁ Studio">
-    </div>
-    <div class="footer-right">
-      <a href="https://instagram.com/ybyastudio" target="_blank" rel="noreferrer">Instagram</a>
-      <a href="mailto:contact@ybyastudio.com">contact@ybyastudio.com</a>
-    </div>
-  </div>
-</footer>
+  <main class="page">
+    <div class="container">
+      <div class="kicker">Project</div>
+      <div class="project-head">
+        <h1>Casa da mata</h1>
+        <div class="project-meta">Maresias, Brazil</div>
+      </div>
 
+      <section class="carousel" data-carousel data-images="images/projects/project-07.jpg">
+        <div class="carousel-viewport"></div>
+        <div class="carousel-ui" aria-hidden="true">
+          <button class="carousel-btn" type="button" data-prev aria-label="Previous">‹</button>
+          <div class="dots" aria-label="Carousel pagination"></div>
+          <button class="carousel-btn" type="button" data-next aria-label="Next">›</button>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <div>© <span id="y"></span> YBYÁ STUDIO</div>
+        <img src="images/projects/logoB.png" onerror="this.src='images/logo.png';" alt="YBYÁ Studio">
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+  <script src="assets/site.js" defer></script>
 </body>
 </html>

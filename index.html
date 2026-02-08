@@ -1,83 +1,106 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>YBYÁ Studio</title>
-<link rel="stylesheet" href="assets/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YBYÁ Studio — Home</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-<header class="site-header">
-  <div class="header-inner">
-    <div class="brand">YBYÁ Studio</div>
-    <nav class="nav">
-      <a href="index.html" aria-current="page">Home</a>
-      <a href="projects.html" >Projects</a>
-      <a href="contact.html" >Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <section class="hero">
-    <div class="hero-media">
-      <img src="images/projects/hero.jpg" alt="">
-      <div class="hero-overlay">
-        <img src="images/projects/logoB.png" alt="YBYÁ">
-        <div class="tag">Architecture Studio</div>
-      </div>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="YBYÁ Studio home">
+        <img src="images/logo.png" alt="">
+        <div class="wordmark">YBYÁ STUDIO</div>
+      </a>
+      <nav>
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <section class="wrap manifesto-block">
-    <div class="manifesto-grid">
-      <div>
+  <main aria-label="Home">
+    <section class="hero">
+      <img class="bg" src="images/projects/hero.jpg" alt="">
+      <div class="hero-brand">
+        <img src="images/logo.png" alt="YBYÁ Studio">
+        <div class="hero-tagline">Architecture Studio</div>
+      </div>
+    </section>
+
+    <section class="page">
+      <div class="container">
         <div class="kicker">Manifesto</div>
-        <h1>Architecture that belongs.</h1>
-        <div class="lede">Architecture rooted in place, shaped by contemporary needs, and designed to last—quietly, responsibly, and with care.</div>
+        <h1 class="no-caps">Architecture that belongs.</h1>
+        <div class="manifest-copy" aria-label="Manifesto text">
+          <p>Rooted in place and knowledge,<br>
+          shaped by today’s needs,<br>
+          and designed to last.</p>
+
+          <p>We build with what exists,<br>
+          learn from what came before,<br>
+          and design responsibly for what lies ahead.</p>
+
+          <p>Because architecture should belong.<br>
+          To its land.<br>
+          to its people.<br>
+          To the time that follows.</p>
+        </div>
+
+        <div class="rule"></div>
+
+        <div style="margin-top:44px; display:flex; align-items:flex-end; justify-content:space-between; gap:18px;">
+          <div>
+            <div class="kicker">Selected projects</div>
+            <h2 style="margin-top:12px;">Work</h2>
+          </div>
+          <a href="projects.html" style="font-size:12px; letter-spacing:.18em; text-transform:uppercase; border-bottom:1px solid rgba(0,0,0,.35); padding-bottom:6px;">Click for more →</a>
+        </div>
+
+        <section class="work-grid" aria-label="Selected projects">
+          <a class="work-card" href="project-01.html" aria-label="Wood collective">
+            <img src="images/projects/project-01.jpg" alt="">
+            <div class="work-meta">
+              <div class="name">Wood collective</div>
+              <div class="place">Sao Paulo, Brazil</div>
+            </div>
+          </a>
+
+          <a class="work-card" href="project-02.html" aria-label="Casa Lupa">
+            <img src="images/projects/project-02.jpg" alt="">
+            <div class="work-meta">
+              <div class="name">Casa Lupa</div>
+              <div class="place">Rio grande do Norte, Brazil</div>
+            </div>
+          </a>
+
+          <a class="work-card" href="project-03.html" aria-label="Villa Breathe">
+            <img src="images/projects/project-03.jpg" alt="">
+            <div class="work-meta">
+              <div class="name">Villa Breathe</div>
+              <div class="place">Rio grande do Norte, Brazil</div>
+            </div>
+          </a>
+        </section>
+
+        <footer class="site-footer">
+          <div>© <span id="y"></span> YBYÁ STUDIO</div>
+          <img src="images/projects/logoB.png" onerror="this.src='images/logo.png';" alt="YBYÁ Studio">
+        </footer>
       </div>
-      <div class="manifesto">Rooted in place and knowledge,
-shaped by today’s needs,
-and designed to last.
+    </section>
+  </main>
 
-We build with what exists,
-learn from what came before,
-and design responsibly for what lies ahead.
-
-Because architecture should belong.
-To its land.
-To its people.
-To the time that follows.
-</div>
-    </div>
-
-    <div class="hr"></div>
-
-    <div class="section-head">
-      <div class="title">Selected projects</div>
-      <a class="more-inline" href="projects.html">Click for more ></a>
-    </div>
-  </section>
-
-  <section class="fullbleed">
-    <div class="tile-grid">
-      <a class="tile" href="project-01.html"><img src="images/projects/project-01.jpg" alt=""><div class="label"><span>Project 01</span></div></a>
-      <a class="tile" href="project-02.html"><img src="images/projects/project-02.jpg" alt=""><div class="label"><span>Project 02</span></div></a>
-      <a class="tile" href="project-03.html"><img src="images/projects/project-03.jpg" alt=""><div class="label"><span>Project 03</span></div></a>
-    </div>
-  </section>
-</main>
-
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-left">
-      <img src="images/projects/logo.png" alt="YBYÁ Studio">
-    </div>
-    <div class="footer-right">
-      <a href="https://instagram.com/ybyastudio" target="_blank" rel="noreferrer">Instagram</a>
-      <a href="mailto:contact@ybyastudio.com">contact@ybyastudio.com</a>
-    </div>
-  </div>
-</footer>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+  <script src="assets/site.js" defer></script>
 </body>
 </html>

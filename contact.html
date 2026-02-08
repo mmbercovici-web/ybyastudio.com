@@ -1,57 +1,82 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Contact — YBYÁ Studio</title>
-<link rel="stylesheet" href="assets/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YBYÁ Studio — Contact</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="YBYÁ Studio home">
+        <img src="images/logo.png" alt="">
+        <div class="wordmark">YBYÁ STUDIO</div>
+      </a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<header class="site-header">
-  <div class="header-inner">
-    <div class="brand">YBYÁ Studio</div>
-    <nav class="nav">
-      <a href="index.html" >Home</a>
-      <a href="projects.html" >Projects</a>
-      <a href="contact.html" aria-current="page">Contact</a>
-    </nav>
-  </div>
-</header>
+  <main class="page">
+    <div class="container">
+      <div class="kicker">Contact</div>
+      <h1>Inquiries</h1>
+      <p class="lede">For collaborations, commissions, or press, write to us.</p>
 
-<main class="page-top">
-  <section class="section wrap">
-    <div class="contact-grid">
-      <div>
-        <div class="kicker">Contact</div>
-        <h1>Let’s talk</h1>
-        <p class="note">Short note. Clear response.</p>
-        <p>For projects, press, and collaborations:<br><strong>contact@ybyastudio.com</strong></p>
+      <section class="about-grid" aria-label="About YBYÁ Studio">
+        <img src="images/me.picture.jpg" alt="Portrait">
+        <div>
+          <div class="kicker" style="margin-top:2px;">About</div>
+          <div class="about-copy">
+            <p>Trained as an architect at ENSA Paris–La Villette, I graduated in 2015 and built my practice through different contexts and scales.</p>
+            <p>French and Brazilian, my work has developed across cultures and geographies, with projects in Spain, Morocco, Turkey, the United States, Romania, Indonesia, Portugal, France and Brazil.</p>
+            <p>I worked with Nomade Architectes, Architecture for Humanity, Atelier du Port, Thibaud Babled Architectes Urbanistes, and Jacobsen Arquitetura.</p>
+            <p>These experiences shaped a way of thinking architecture as structure, matter and responsibility — before form.</p>
+            <p>YBYÁ Studio was born from this path.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="contact-block" aria-label="Contact form">
+        <form class="contact-form" action="mailto:contact@ybyastudio.com" method="post" enctype="text/plain">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="button">Send</button>
+            <a class="email" href="mailto:contact@ybyastudio.com">contact@ybyastudio.com</a>
+          </div>
+        </form>
       </div>
 
-      <form action="mailto:contact@ybyastudio.com" method="post" enctype="text/plain">
-        <label>Name</label>
-        <input type="text" name="name">
-        <label>Email</label>
-        <input type="email" name="email">
-        <label>Message</label>
-        <textarea name="message" placeholder="A short message"></textarea>
-      </form>
+      <footer class="site-footer">
+        <div>© <span id="y"></span> YBYÁ STUDIO</div>
+        <img src="images/projects/logoB.png" onerror="this.src='images/logo.png';" alt="YBYÁ Studio">
+      </footer>
     </div>
-  </section>
-</main>
+  </main>
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-left">
-      <img src="images/projects/logo.png" alt="YBYÁ Studio">
-    </div>
-    <div class="footer-right">
-      <a href="https://instagram.com/ybyastudio" target="_blank" rel="noreferrer">Instagram</a>
-      <a href="mailto:contact@ybyastudio.com">contact@ybyastudio.com</a>
-    </div>
-  </div>
-</footer>
-
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+  <script src="assets/site.js" defer></script>
 </body>
 </html>
