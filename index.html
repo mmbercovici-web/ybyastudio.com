@@ -12,13 +12,17 @@
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-  <header>
+  <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="index.html" aria-label="YBYÁ Studio home">
-        <img src="images/logo.png" alt="">
-        <div class="wordmark">YBYÁ STUDIO</div>
-      </a>
-      <nav>
+      <div class="brand-block">
+        <a class="brand-text" href="index.html" aria-label="YBYÁ Studio home">YBYÁ STUDIO</a>
+      </div>
+
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-menu-toggle>
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="site-nav" data-site-nav>
         <a href="index.html" aria-current="page">Home</a>
         <a href="projects.html">Projects</a>
         <a href="contact.html">Contact</a>
@@ -35,25 +39,20 @@
       </div>
     </section>
 
+<section class="manifest">
+    <div class="container">
+      <div class="kicker">Manifesto</div>
+      <h1 class="title-caps">ARCHITECTURE THAT BELONGS.</h1>
+      <div class="manifest-body">
+        <p>Rooted in place and knowledge,<br>shaped by today’s needs,<br>and designed to last.</p>
+        <p>We build with what exists,<br>learn from what came before,<br>and design responsibly for what lies ahead.</p>
+        <p>Because architecture should belong.<br>To its land.<br>to its people.<br>To the time that follows.</p>
+      </div>
+    </div>
+  </section>
+
     <section class="page">
       <div class="container">
-        <div class="kicker">Manifesto</div>
-        <h1 class="no-caps">Architecture that belongs.</h1>
-        <div class="manifest-copy" aria-label="Manifesto text">
-          <p>Rooted in place and knowledge,<br>
-          shaped by today’s needs,<br>
-          and designed to last.</p>
-
-          <p>We build with what exists,<br>
-          learn from what came before,<br>
-          and design responsibly for what lies ahead.</p>
-
-          <p>Because architecture should belong.<br>
-          To its land.<br>
-          to its people.<br>
-          To the time that follows.</p>
-        </div>
-
         <div class="rule"></div>
 
         <div style="margin-top:44px; display:flex; align-items:flex-end; justify-content:space-between; gap:18px;">
@@ -90,10 +89,14 @@
           </a>
         </section>
 
-        <footer class="site-footer">
-          <div>© <span id="y"></span> YBYÁ STUDIO</div>
-          <img src="images/projects/logoB.png" onerror="this.src='images/logo.png';" alt="YBYÁ Studio">
-        </footer>
+          <footer class="site-footer">
+    <div class="footer-left">© <span id="y"></span> YBYÁ STUDIO</div>
+    <img class="footer-mark" src="images/projects/logoB.png" onerror="this.src='images/logo.png';" alt="YBYÁ Studio">
+    <div class="footer-links">
+      <a href="mailto:contact@ybyastudio.com">contact@ybyastudio.com</a>
+      <a href="https://instagram.com/ybya.studio" target="_blank" rel="noopener">@ybya.studio</a>
+    </div>
+  </footer>
       </div>
     </section>
   </main>

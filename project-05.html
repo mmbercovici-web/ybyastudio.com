@@ -12,13 +12,17 @@
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-  <header>
+  <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="index.html" aria-label="YBYÁ Studio home">
-        <img src="images/logo.png" alt="">
-        <div class="wordmark">YBYÁ STUDIO</div>
-      </a>
-      <nav>
+      <div class="brand-block">
+        <a class="brand-text" href="index.html" aria-label="YBYÁ Studio home">YBYÁ STUDIO</a>
+      </div>
+
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-menu-toggle>
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="site-nav" data-site-nav>
         <a href="index.html">Home</a>
         <a href="projects.html">Projects</a>
         <a href="contact.html">Contact</a>
@@ -26,29 +30,39 @@
     </div>
   </header>
 
-  <main class="page">
-    <div class="container">
-      <div class="kicker">Project</div>
-      <div class="project-head">
-        <h1>Villa Batu Hill</h1>
-        <div class="project-meta">Java, Indonesia</div>
-      </div>
-
-      <section class="carousel" data-carousel data-images="images/projects/project-05.jpg">
-        <div class="carousel-viewport"></div>
-        <div class="carousel-ui" aria-hidden="true">
-          <button class="carousel-btn" type="button" data-prev aria-label="Previous">‹</button>
-          <div class="dots" aria-label="Carousel pagination"></div>
-          <button class="carousel-btn" type="button" data-next aria-label="Next">›</button>
-        </div>
-      </section>
-
-      <footer class="site-footer">
-        <div>© <span id="y"></span> YBYÁ STUDIO</div>
-        <img src="images/projects/logoB.png" onerror="this.src='images/logo.png';" alt="YBYÁ Studio">
-      </footer>
+  <main class="project-page">
+<section class="project-carousel" data-carousel data-images="images/projects/project-05.jpg">
+    <div class="carousel-viewport"></div>
+    <div class="carousel-ui" aria-hidden="true">
+      <button class="carousel-btn" type="button" data-prev aria-label="Previous">‹</button>
+      <div class="dots" aria-label="Carousel pagination"></div>
+      <button class="carousel-btn" type="button" data-next aria-label="Next">›</button>
     </div>
-  </main>
+  </section>
+
+  <section class="project-text">
+    <div class="container project-text-grid">
+      <div class="project-copy">
+        <h1 class="title-caps">Villa Batu Hill</h1>
+        <p>Villa Batu Hill is positioned on a sloped site in Java, using terracing and shaded platforms to negotiate views and rain. A simple structural order anchors stone and timber surfaces, with deep eaves and screened openings managing humidity and glare. The house is experienced as layered edges—courtyards, verandas and covered passages—where climate and vegetation define daily comfort. Water is treated as a design parameter—runoff, evaporation and sound—so the architecture reads as a sheltered terrain more than a closed container in the everyday.</p>
+      </div>
+      <dl class="project-facts" aria-label="Project metadata">
+        <div><dt>Location</dt><dd>Java, Indonesia</dd></div>
+        <div><dt>Year</dt><dd>2017</dd></div>
+        <div><dt>Status</dt><dd>Concept</dd></div>
+      </dl>
+    </div>
+  </section>
+
+    <footer class="site-footer">
+    <div class="footer-left">© <span id="y"></span> YBYÁ STUDIO</div>
+    <img class="footer-mark" src="images/projects/logoB.png" onerror="this.src='images/logo.png';" alt="YBYÁ Studio">
+    <div class="footer-links">
+      <a href="mailto:contact@ybyastudio.com">contact@ybyastudio.com</a>
+      <a href="https://instagram.com/ybya.studio" target="_blank" rel="noopener">@ybya.studio</a>
+    </div>
+  </footer>
+</main>
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();

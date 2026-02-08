@@ -12,13 +12,17 @@
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-  <header>
+  <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="index.html" aria-label="YBYÁ Studio home">
-        <img src="images/logo.png" alt="">
-        <div class="wordmark">YBYÁ STUDIO</div>
-      </a>
-      <nav>
+      <div class="brand-block">
+        <a class="brand-text" href="index.html" aria-label="YBYÁ Studio home">YBYÁ STUDIO</a>
+      </div>
+
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-menu-toggle>
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="site-nav" data-site-nav>
         <a href="index.html">Home</a>
         <a href="projects.html">Projects</a>
         <a href="contact.html" aria-current="page">Contact</a>
@@ -27,52 +31,56 @@
   </header>
 
   <main class="page">
-    <div class="container">
+  <div class="container contact-grid">
+    <div class="contact-photo">
+      <img src="images/me.picture.jpg" alt="Portrait">
+    </div>
+
+    <div class="contact-content">
       <div class="kicker">Contact</div>
-      <h1>Inquiries</h1>
-      <p class="lede">For collaborations, commissions, or press, write to us.</p>
+      <h1 class="title-caps">YBYÁ STUDIO</h1>
+      <div class="bio">
+        <p>Melina Bercovici, founder of YBYÁ Studio, is an architect trained at ENSA Paris–La Villette, Universidad Europea de Madrid. She graduated in 2015 and built her practice through different contexts and scales.</p>
 
-      <section class="about-grid" aria-label="About YBYÁ Studio">
-        <img src="images/me.picture.jpg" alt="Portrait">
-        <div>
-          <div class="kicker" style="margin-top:2px;">About</div>
-          <div class="about-copy">
-            <p>Trained as an architect at ENSA Paris–La Villette, I graduated in 2015 and built my practice through different contexts and scales.</p>
-            <p>French and Brazilian, my work has developed across cultures and geographies, with projects in Spain, Morocco, Turkey, the United States, Romania, Indonesia, Portugal, France and Brazil.</p>
-            <p>I worked with Nomade Architectes, Architecture for Humanity, Atelier du Port, Thibaud Babled Architectes Urbanistes, and Jacobsen Arquitetura.</p>
-            <p>These experiences shaped a way of thinking architecture as structure, matter and responsibility — before form.</p>
-            <p>YBYÁ Studio was born from this path.</p>
-          </div>
-        </div>
-      </section>
+        <p>French-Brazilian, her work has developed across cultures and geographies, with projects in Spain, Morocco, Turkey, the United States, Romania, Indonesia, Portugal, France, and Brazil.</p>
 
-      <div class="contact-block" aria-label="Contact form">
-        <form class="contact-form" action="mailto:contact@ybyastudio.com" method="post" enctype="text/plain">
-          <div class="field">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" required>
-          </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required>
-          </div>
-          <div class="field">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="6" required></textarea>
-          </div>
-          <div class="form-actions">
-            <button type="submit" class="button">Send</button>
-            <a class="email" href="mailto:contact@ybyastudio.com">contact@ybyastudio.com</a>
-          </div>
-        </form>
+        <p>She has worked with Nomade Architectes, Architecture for Humanity, Atelier du Port, Thibaud Babled Architectes Urbanistes, and Jacobsen Arquitetura.</p>
+
+        <p>These experiences shaped a way of thinking about architecture as structure, matter, and responsibility — before form.</p>
+
+        <p>For projects, press, or collaborations, write with a short context and timeline.</p>
       </div>
 
-      <footer class="site-footer">
-        <div>© <span id="y"></span> YBYÁ STUDIO</div>
-        <img src="images/projects/logoB.png" onerror="this.src='images/logo.png';" alt="YBYÁ Studio">
-      </footer>
+      <form class="contact-form" action="mailto:contact@ybyastudio.com" method="post" enctype="text/plain">
+        <label>
+          <span>Name</span>
+          <input type="text" name="name" required>
+        </label>
+
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" required>
+        </label>
+
+        <label>
+          <span>Message</span>
+          <textarea name="message" rows="6" required></textarea>
+        </label>
+
+        <button type="submit">Send</button>
+      </form>
+</div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="footer-left">© <span id="y"></span> YBYÁ STUDIO</div>
+    <img class="footer-mark" src="images/projects/logoB.png" onerror="this.src='images/logo.png';" alt="YBYÁ Studio">
+    <div class="footer-links">
+      <a href="mailto:contact@ybyastudio.com">contact@ybyastudio.com</a>
+      <a href="https://instagram.com/ybya.studio" target="_blank" rel="noopener">@ybya.studio</a>
     </div>
-  </main>
+  </footer>
+</main>
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();

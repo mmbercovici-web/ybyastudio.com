@@ -12,13 +12,17 @@
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-  <header>
+  <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="index.html" aria-label="YBYÁ Studio home">
-        <img src="images/logo.png" alt="">
-        <div class="wordmark">YBYÁ STUDIO</div>
-      </a>
-      <nav>
+      <div class="brand-block">
+        <a class="brand-text" href="index.html" aria-label="YBYÁ Studio home">YBYÁ STUDIO</a>
+      </div>
+
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-menu-toggle>
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="site-nav" data-site-nav>
         <a href="index.html">Home</a>
         <a href="projects.html">Projects</a>
         <a href="contact.html">Contact</a>
@@ -26,29 +30,39 @@
     </div>
   </header>
 
-  <main class="page">
-    <div class="container">
-      <div class="kicker">Project</div>
-      <div class="project-head">
-        <h1>Villa Breathe</h1>
-        <div class="project-meta">Rio grande do Norte, Brazil</div>
-      </div>
-
-      <section class="carousel" data-carousel data-images="images/projects/project-03.jpg,images/projects/project-03.1.jpg,images/projects/project-03.2.jpg">
-        <div class="carousel-viewport"></div>
-        <div class="carousel-ui" aria-hidden="true">
-          <button class="carousel-btn" type="button" data-prev aria-label="Previous">‹</button>
-          <div class="dots" aria-label="Carousel pagination"></div>
-          <button class="carousel-btn" type="button" data-next aria-label="Next">›</button>
-        </div>
-      </section>
-
-      <footer class="site-footer">
-        <div>© <span id="y"></span> YBYÁ STUDIO</div>
-        <img src="images/projects/logoB.png" onerror="this.src='images/logo.png';" alt="YBYÁ Studio">
-      </footer>
+  <main class="project-page">
+<section class="project-carousel" data-carousel data-images="images/projects/project-03.jpg,images/projects/project-03.1.jpg,images/projects/project-03.2.jpg">
+    <div class="carousel-viewport"></div>
+    <div class="carousel-ui" aria-hidden="true">
+      <button class="carousel-btn" type="button" data-prev aria-label="Previous">‹</button>
+      <div class="dots" aria-label="Carousel pagination"></div>
+      <button class="carousel-btn" type="button" data-next aria-label="Next">›</button>
     </div>
-  </main>
+  </section>
+
+  <section class="project-text">
+    <div class="container project-text-grid">
+      <div class="project-copy">
+        <h1 class="title-caps">Villa Breathe</h1>
+        <p>Villa Breathe sits lightly on the terrain, arranging living spaces as a continuous promenade between interior shelter and exterior air. Structure and joinery define depth—screens, eaves and recesses that temper sun and invite wind. The project relies on few gestures: local textures, controlled apertures and long shaded edges that let weather, vegetation and time become part of the architecture. By keeping the composition open and non‑hierarchical, the villa can host different tempos of occupation, from solitude to gathering, without changing its footprint.</p>
+      </div>
+      <dl class="project-facts" aria-label="Project metadata">
+        <div><dt>Location</dt><dd>Rio Grande do Norte, Brazil</dd></div>
+        <div><dt>Year</dt><dd>2023</dd></div>
+        <div><dt>Status</dt><dd>Built</dd></div>
+      </dl>
+    </div>
+  </section>
+
+    <footer class="site-footer">
+    <div class="footer-left">© <span id="y"></span> YBYÁ STUDIO</div>
+    <img class="footer-mark" src="images/projects/logoB.png" onerror="this.src='images/logo.png';" alt="YBYÁ Studio">
+    <div class="footer-links">
+      <a href="mailto:contact@ybyastudio.com">contact@ybyastudio.com</a>
+      <a href="https://instagram.com/ybya.studio" target="_blank" rel="noopener">@ybya.studio</a>
+    </div>
+  </footer>
+</main>
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();

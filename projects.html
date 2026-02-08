@@ -12,13 +12,17 @@
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-  <header>
+  <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="index.html" aria-label="YBYÁ Studio home">
-        <img src="images/logo.png" alt="">
-        <div class="wordmark">YBYÁ STUDIO</div>
-      </a>
-      <nav>
+      <div class="brand-block">
+        <a class="brand-text" href="index.html" aria-label="YBYÁ Studio home">YBYÁ STUDIO</a>
+      </div>
+
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-menu-toggle>
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="site-nav" data-site-nav>
         <a href="index.html">Home</a>
         <a href="projects.html" aria-current="page">Projects</a>
         <a href="contact.html">Contact</a>
@@ -34,54 +38,58 @@
       <section class="work-grid" aria-label="Projects grid">
         <a class="work-card" href="project-01.html" aria-label="Wood collective">
           <img src="images/projects/project-01.jpg" alt="">
-          <div class="work-meta"><div class="name">Wood collective</div><div class="place">Sao Paulo, Brazil</div></div>
+          <div class="work-meta"><div class="name">Wood collective</div><div class="type">Housing</div><div class="place">Sao Paulo, Brazil</div></div>
         </a>
 
         <a class="work-card" href="project-02.html" aria-label="Casa Lupa">
           <img src="images/projects/project-02.jpg" alt="">
-          <div class="work-meta"><div class="name">Casa Lupa</div><div class="place">Rio grande do Norte, Brazil</div></div>
+          <div class="work-meta"><div class="name">Casa Lupa</div><div class="type">Residential</div><div class="place">Rio Grande do Norte, Brazil</div></div>
         </a>
 
         <a class="work-card" href="project-03.html" aria-label="Villa Breathe">
           <img src="images/projects/project-03.jpg" alt="">
-          <div class="work-meta"><div class="name">Villa Breathe</div><div class="place">Rio grande do Norte, Brazil</div></div>
+          <div class="work-meta"><div class="name">Villa Breathe</div><div class="type">Residential</div><div class="place">Rio Grande do Norte, Brazil</div></div>
         </a>
 
         <a class="work-card" href="project-04.html" aria-label="ANAMÃ">
           <img src="images/projects/project-04.jpg" alt="">
-          <div class="work-meta"><div class="name">ANAMÃ</div><div class="place">Praia da Pipa, Brazil</div></div>
+          <div class="work-meta"><div class="name">ANAMÃ</div><div class="type">Pavilion</div><div class="place">Praia da Pipa, Brazil</div></div>
         </a>
 
         <a class="work-card" href="project-05.html" aria-label="Villa Batu Hill">
           <img src="images/projects/project-05.jpg" alt="">
-          <div class="work-meta"><div class="name">Villa Batu Hill</div><div class="place">Java, Indonesia</div></div>
+          <div class="work-meta"><div class="name">Villa Batu Hill</div><div class="type">Residential</div><div class="place">Java, Indonesia</div></div>
         </a>
 
-        <a class="work-card" href="project-06.html" aria-label="Kalico">
+        <a class="work-card" href="project-06.html" aria-label="Kali">
           <img src="images/projects/project-06.jpg" alt="">
-          <div class="work-meta"><div class="name">Kalico</div><div class="place">Praia da Pipa, Brazil</div></div>
+          <div class="work-meta"><div class="name">Kali</div><div class="type">Residential</div><div class="place">Praia da Pipa, Brazil</div></div>
         </a>
 
         <a class="work-card" href="project-07.html" aria-label="Casa da mata">
           <img src="images/projects/project-07.jpg" alt="">
-          <div class="work-meta"><div class="name">Casa da mata</div><div class="place">Maresias, Brazil</div></div>
+          <div class="work-meta"><div class="name">Casa da mata</div><div class="type">Residential</div><div class="place">Maresias, Brazil</div></div>
         </a>
 
-        <a class="work-card" href="project-08.html" aria-label="Cajueiros House">
+        <a class="work-card" href="project-08.html" aria-label="Mangabeira Pavilion">
           <img src="images/projects/project-08.jpg" alt="">
-          <div class="work-meta"><div class="name">Cajueiros House</div><div class="place">Praia da Pipa, Brazil</div></div>
+          <div class="work-meta"><div class="name">Mangabeira Pavilion</div><div class="type">Pavilion</div><div class="place">Praia da Pipa, Brazil</div></div>
         </a>
 
         <a class="work-card" href="project-09.html" aria-label="Terrazzo">
           <img src="images/projects/project-09.jpg" alt="">
-          <div class="work-meta"><div class="name">Terrazzo</div><div class="place">—</div></div>
+          <div class="work-meta"><div class="name">Terrazzo</div><div class="type">Interior / Material study</div><div class="place">—</div></div>
         </a>
       </section>
 
-      <footer class="site-footer">
-        <div>© <span id="y"></span> YBYÁ STUDIO</div>
-        <img src="images/projects/logoB.png" onerror="this.src='images/logo.png';" alt="YBYÁ Studio">
-      </footer>
+        <footer class="site-footer">
+    <div class="footer-left">© <span id="y"></span> YBYÁ STUDIO</div>
+    <img class="footer-mark" src="images/projects/logoB.png" onerror="this.src='images/logo.png';" alt="YBYÁ Studio">
+    <div class="footer-links">
+      <a href="mailto:contact@ybyastudio.com">contact@ybyastudio.com</a>
+      <a href="https://instagram.com/ybya.studio" target="_blank" rel="noopener">@ybya.studio</a>
+    </div>
+  </footer>
     </div>
   </main>
 
