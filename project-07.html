@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
+
   <header class="site-header">
     <div class="container nav">
       <div class="brand-block">
@@ -31,42 +32,84 @@
   </header>
 
   <main class="project-page">
-<section class="project-carousel" data-carousel data-images="images/projects/project-07.jpg">
-    <div class="carousel-viewport"></div>
-    <div class="carousel-ui" aria-hidden="true">
-      <button class="carousel-btn" type="button" data-prev aria-label="Previous">‹</button>
-      <div class="dots" aria-label="Carousel pagination"></div>
-      <button class="carousel-btn" type="button" data-next aria-label="Next">›</button>
-    </div>
-  </section>
 
-  <section class="project-text">
-    <div class="container project-text-grid">
-      <div class="project-copy">
-        <h1 class="title-caps">Casa da mata</h1>
-        <p>Casa da mata is set within the Atlantic Forest edge of Maresias, prioritizing shade, ventilation and low impact on the ground. A lightweight structure organizes rooms along a sheltered walkway, keeping built mass compact and adaptable. Openings are kept deliberate, framing trunks and canopy while protecting privacy, so the house reads as an inhabitable threshold between forest humidity and interior calm. Materials are chosen for resistance to salt air and moisture, and detailing favors repairable joints so the house can age with the forest instead of against it.</p>
+    <section 
+      class="project-carousel"
+      data-carousel
+      data-images="
+        images/projects/project-07-01.jpg,
+        images/projects/project-07-02.jpg,
+        images/projects/project-07-03.jpg
+      ">
+      <div class="carousel-viewport"></div>
+
+      <div class="carousel-ui" aria-hidden="true">
+        <button class="carousel-btn" type="button" data-prev aria-label="Previous">‹</button>
+        <div class="dots" aria-label="Carousel pagination"></div>
+        <button class="carousel-btn" type="button" data-next aria-label="Next">›</button>
       </div>
-      <dl class="project-facts" aria-label="Project metadata">
-        <div><dt>Location</dt><dd>Maresias, Brazil</dd></div>
-        <div><dt>Year</dt><dd>2025</dd></div>
-        <div><dt>Status</dt><dd>Concept</dd></div>
-      </dl>
-    </div>
-  </section>
+    </section>
+
+    <section class="project-text">
+      <div class="container project-text-grid">
+        <div class="project-copy">
+          <h1 class="title-caps">Casa da mata</h1>
+          <p>
+            Casa da mata is set within the Atlantic Forest edge of Maresias,
+            prioritizing shade, ventilation and low impact on the ground.
+            A lightweight structure organizes rooms along a sheltered walkway,
+            keeping built mass compact and adaptable. Openings are kept deliberate,
+            framing trunks and canopy while protecting privacy, so the house reads
+            as an inhabitable threshold between forest humidity and interior calm.
+            Materials are chosen for resistance to salt air and moisture, and
+            detailing favors repairable joints so the house can age with the forest
+            instead of against it.
+          </p>
+        </div>
+
+        <dl class="project-facts" aria-label="Project metadata">
+          <div>
+            <dt>Location</dt>
+            <dd>Maresias, Brazil</dd>
+          </div>
+          <div>
+            <dt>Year</dt>
+            <dd>2025</dd>
+          </div>
+          <div>
+            <dt>Status</dt>
+            <dd>Concept</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
 
     <footer class="site-footer">
-    <div class="footer-left">© <span id="y"></span> YBYÁ STUDIO</div>
-    <img class="footer-mark" src="images/projects/logoB.png" onerror="this.src='images/logo.png';" alt="YBYÁ Studio">
-    <div class="footer-links">
-      <a href="mailto:contact@ybyastudio.com">contact@ybyastudio.com</a>
-      <a href="https://instagram.com/ybya.studio" target="_blank" rel="noopener">@ybya.studio</a>
-    </div>
-  </footer>
-</main>
+      <div class="footer-left">
+        © <span id="y"></span> YBYÁ STUDIO
+      </div>
+
+      <img
+        class="footer-mark"
+        src="images/projects/logoB.png"
+        onerror="this.src='images/logo.png';"
+        alt="YBYÁ Studio"
+      >
+
+      <div class="footer-links">
+        <a href="mailto:contact@ybyastudio.com">contact@ybyastudio.com</a>
+        <a href="https://instagram.com/ybya.studio" target="_blank" rel="noopener">
+          @ybya.studio
+        </a>
+      </div>
+    </footer>
+
+  </main>
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
   <script src="assets/site.js" defer></script>
+
 </body>
 </html>
