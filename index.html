@@ -21,6 +21,9 @@
       background: rgba(255,255,255,0.85);
       backdrop-filter: blur(12px);
       z-index: 1000;
+
+      /* IMPORTANT: prevent dropdown clipping */
+      overflow: visible;
     }
 
     .nav{
@@ -29,6 +32,9 @@
       align-items:center;
       height:72px;
       position:relative;
+
+      /* IMPORTANT: prevent dropdown clipping */
+      overflow: visible;
     }
 
     .brand-text{
@@ -65,7 +71,6 @@
     }
 
     /* Hamburger */
-
     .menu-toggle{
       display:none;
       flex-direction:column;
@@ -73,6 +78,11 @@
       background:none;
       border:none;
       cursor:pointer;
+
+      /* ensure button is clickable above any overlays */
+      position: relative;
+      z-index: 1002;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .menu-toggle span{
@@ -83,7 +93,6 @@
     }
 
     /* Mobile */
-
     @media (max-width: 768px){
 
       .menu-toggle{
@@ -93,20 +102,28 @@
       .site-nav{
         position:absolute;
         top:72px;
-        right:0;
+
+        /* IMPORTANT: full-width dropdown aligned to viewport */
+        left: 0;
+        right: 0;
+
         background:white;
-        width:100%;
         display:none;
         flex-direction:column;
         padding:32px 24px;
         gap:24px;
         border-top:1px solid rgba(0,0,0,.08);
+
+        /* IMPORTANT: dropdown above hero */
+        z-index: 1001;
+
+        /* subtle touch improvement */
+        box-shadow: 0 16px 40px rgba(0,0,0,.08);
       }
 
       .site-nav.active{
         display:flex;
       }
-
     }
   </style>
 </head>
@@ -120,13 +137,19 @@
       YBYÁ <span class="brand-sub">STUDIO</span>
     </a>
 
-    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="primary-nav"
+    >
       <span></span>
       <span></span>
       <span></span>
     </button>
 
-    <nav class="site-nav">
+    <nav id="primary-nav" class="site-nav" aria-label="Primary">
       <a href="index.html" aria-current="page">Home</a>
       <a href="projects.html">Projects</a>
       <a href="contact.html">Contact</a>
@@ -217,9 +240,20 @@
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.site-nav');
 
-  toggle.addEventListener('click', () => {
-    nav.classList.toggle('active');
-  });
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('active');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Close after clicking any link (mobile UX)
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        nav.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
 </script>
 
 <script src="assets/site.js" defer></script>
