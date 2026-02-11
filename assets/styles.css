@@ -11,6 +11,7 @@
 html,body{height:100%}
 body{
   margin:0;
+  overflow-x:hidden;
   background:var(--bg);
   color:var(--ink);
   font-family:Roboto,system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif;
@@ -541,6 +542,7 @@ h2{font-size:clamp(16px,1.6vw,22px);line-height:1.15}
     gap:14px;
   }
   .site-nav.is-open{display:flex;}
+  .site-nav.active{display:flex;}
   .site-nav a{
     font-size:13px;
     letter-spacing:.16em;
@@ -757,4 +759,32 @@ h2{font-size:clamp(16px,1.6vw,22px);line-height:1.15}
 /* Mobile side margins */
 @media (max-width: 768px){
   .container{padding:0 20px;}
+}
+
+
+/* =========================
+   FOOTER — MOBILE FIT
+========================= */
+@media (max-width: 768px){
+  .site-footer{
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:flex-start;
+    gap:10px;
+    white-space:normal;   /* override desktop nowrap */
+  }
+  .site-footer .footer-left{width:100%;}
+  .site-footer .footer-mark{height:16px; width:auto;}
+  .site-footer .footer-links{
+    width:100%;
+    margin-left:0;
+    justify-content:flex-start;
+    flex-wrap:wrap;
+    gap:10px 14px;
+  }
+  .site-footer .footer-links a{
+    max-width:100%;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+  }
 }
