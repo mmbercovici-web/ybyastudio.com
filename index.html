@@ -21,8 +21,6 @@
       background: rgba(255,255,255,0.85);
       backdrop-filter: blur(12px);
       z-index: 1000;
-
-      /* IMPORTANT: prevent dropdown clipping */
       overflow: visible;
     }
 
@@ -32,8 +30,6 @@
       align-items:center;
       height:72px;
       position:relative;
-
-      /* IMPORTANT: prevent dropdown clipping */
       overflow: visible;
     }
 
@@ -48,6 +44,7 @@
       display: inline-flex;
       align-items: baseline;
       gap: 10px;
+      white-space: nowrap;
     }
 
     .brand-sub{
@@ -60,6 +57,7 @@
     .site-nav{
       display:flex;
       gap:32px;
+      align-items:center;
     }
 
     .site-nav a{
@@ -68,9 +66,10 @@
       text-transform: uppercase;
       text-decoration:none;
       color:inherit;
+      white-space: nowrap;
     }
 
-    /* Hamburger */
+    /* Hamburger (kept, but we’ll hide on mobile in this solution) */
     .menu-toggle{
       display:none;
       flex-direction:column;
@@ -78,8 +77,6 @@
       background:none;
       border:none;
       cursor:pointer;
-
-      /* ensure button is clickable above any overlays */
       position: relative;
       z-index: 1002;
       -webkit-tap-highlight-color: transparent;
@@ -92,37 +89,44 @@
       display:block;
     }
 
-    /* Mobile */
+    /* Mobile: keep menu visible like desktop */
     @media (max-width: 768px){
+      /* Hide hamburger */
+      .menu-toggle{ display:none !important; }
 
-      .menu-toggle{
-        display:flex;
-      }
-
+      /* Force nav to stay visible */
       .site-nav{
-        position:absolute;
-        top:72px;
-
-        /* IMPORTANT: full-width dropdown aligned to viewport */
-        left: 0;
-        right: 0;
-
-        background:white;
-        display:none;
-        flex-direction:column;
-        padding:32px 24px;
-        gap:24px;
-        border-top:1px solid rgba(0,0,0,.08);
-
-        /* IMPORTANT: dropdown above hero */
-        z-index: 1001;
-
-        /* subtle touch improvement */
-        box-shadow: 0 16px 40px rgba(0,0,0,.08);
+        display:flex !important;
+        position: static !important;
+        flex-direction: row !important;
+        gap: 18px !important;
+        padding: 0 !important;
+        background: transparent !important;
+        border-top: 0 !important;
+        box-shadow: none !important;
       }
 
-      .site-nav.active{
-        display:flex;
+      /* Slightly tighter typography so it fits */
+      .site-nav a{
+        font-size: 11px;
+        letter-spacing: .16em;
+      }
+
+      /* Prevent header from pushing content weirdly */
+      .nav{
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+
+    /* Extra-small phones: allow wrapping if needed */
+    @media (max-width: 380px){
+      .site-nav{
+        gap: 14px !important;
+      }
+      .site-nav a{
+        font-size: 10px;
+        letter-spacing: .14em;
       }
     }
   </style>
@@ -236,24 +240,6 @@
 
 <script>
   document.getElementById('y').textContent = new Date().getFullYear();
-
-  const toggle = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('.site-nav');
-
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('active');
-      toggle.setAttribute('aria-expanded', String(isOpen));
-    });
-
-    // Close after clicking any link (mobile UX)
-    nav.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        nav.classList.remove('active');
-        toggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-  }
 </script>
 
 <script src="assets/site.js" defer></script>
