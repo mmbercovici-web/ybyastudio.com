@@ -11,16 +11,16 @@
 
   <link rel="stylesheet" href="assets/styles.css">
 
-  <style>
+  <style id="ybya-header-unify">
     main { padding-top: 72px; }
 
     .site-header{
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(255,255,255,0.92);
+      background: rgba(255,255,255,0.85);
       backdrop-filter: blur(12px);
-      z-index: 9999;
+      z-index: 1000;
     }
 
     .nav{
@@ -51,7 +51,6 @@
       opacity: .65;
     }
 
-    /* Desktop nav */
     .site-nav{
       display:flex;
       gap:32px;
@@ -66,28 +65,25 @@
     }
 
     /* Hamburger */
+
     .menu-toggle{
       display:none;
-      width:44px;
-      height:44px;
+      flex-direction:column;
+      gap:4px;
       background:none;
       border:none;
       cursor:pointer;
-      align-items:center;
-      justify-content:center;
-      flex-direction:column;
-      z-index:10000;
     }
 
     .menu-toggle span{
       width:22px;
       height:2px;
-      margin:4px 0;
-      background:#111;
+      background:#000;
       display:block;
     }
 
     /* Mobile */
+
     @media (max-width: 768px){
 
       .menu-toggle{
@@ -95,17 +91,16 @@
       }
 
       .site-nav{
-        display:none;
-        position:fixed;
+        position:absolute;
         top:72px;
-        left:0;
-        width:100%;
+        right:0;
         background:white;
+        width:100%;
+        display:none;
         flex-direction:column;
         padding:32px 24px;
         gap:24px;
         border-top:1px solid rgba(0,0,0,.08);
-        z-index:9998;
       }
 
       .site-nav.active{
@@ -121,11 +116,11 @@
 <header class="site-header">
   <div class="container nav">
 
-    <a class="brand-text" href="index.html">
+    <a class="brand-text" href="index.html" aria-label="YBYÁ Studio home">
       YBYÁ <span class="brand-sub">STUDIO</span>
     </a>
 
-    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
@@ -140,10 +135,11 @@
   </div>
 </header>
 
-<main>
+<main aria-label="Home">
 
   <section class="hero">
     <img class="bg" src="images/projects/hero.jpg" alt="">
+    <div class="hero-brand"></div>
   </section>
 
   <section class="manifest">
@@ -158,20 +154,75 @@
     </div>
   </section>
 
+  <section class="page">
+    <div class="container">
+
+      <div class="rule"></div>
+
+      <div style="margin-top:44px; display:flex; align-items:flex-end; justify-content:space-between; gap:18px;">
+        <div>
+          <div class="kicker">Selected projects</div>
+          <h2 style="margin-top:12px;">Work</h2>
+        </div>
+        <a href="projects.html" style="font-size:12px; letter-spacing:.18em; text-transform:uppercase; border-bottom:1px solid rgba(0,0,0,.35); padding-bottom:6px;">
+          Click for more →
+        </a>
+      </div>
+
+      <section class="work-grid" aria-label="Selected projects">
+
+        <a class="work-card" href="project-01.html">
+          <img src="images/projects/project-01.jpg" alt="">
+          <div class="work-meta">
+            <div class="name">Wood collective</div>
+            <div class="place">Sao Paulo, Brazil</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="project-02.html">
+          <img src="images/projects/project-02.jpg" alt="">
+          <div class="work-meta">
+            <div class="name">Casa Lupa</div>
+            <div class="place">Rio Grande do Norte, Brazil</div>
+          </div>
+        </a>
+
+        <a class="work-card" href="project-03.html">
+          <img src="images/projects/project-03.jpg" alt="">
+          <div class="work-meta">
+            <div class="name">Villa Breathe</div>
+            <div class="place">Rio Grande do Norte, Brazil</div>
+          </div>
+        </a>
+
+      </section>
+
+      <footer class="site-footer">
+        <div class="footer-left">© <span id="y"></span> YBYÁ STUDIO</div>
+        <img class="footer-mark" src="images/projects/logoB.png" onerror="this.src='images/logo.png';" alt="YBYÁ Studio">
+        <div class="footer-links">
+          <a href="mailto:contact@ybyastudio.com">contact@ybyastudio.com</a>
+          <a href="https://instagram.com/ybya.studio" target="_blank" rel="noopener">@ybya.studio</a>
+        </div>
+      </footer>
+
+    </div>
+  </section>
+
 </main>
 
 <script>
-  document.getElementById('y')?.textContent = new Date().getFullYear();
+  document.getElementById('y').textContent = new Date().getFullYear();
 
-  const btn = document.querySelector('.menu-toggle');
+  const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.site-nav');
 
-  btn.addEventListener('click', () => {
+  toggle.addEventListener('click', () => {
     nav.classList.toggle('active');
-    const expanded = btn.getAttribute('aria-expanded') === 'true';
-    btn.setAttribute('aria-expanded', !expanded);
   });
 </script>
+
+<script src="assets/site.js" defer></script>
 
 </body>
 </html>
