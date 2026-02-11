@@ -10,25 +10,60 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/styles.css">
+
+  <style id="ybya-header-unify">
+    /* Header unify (same on all pages) */
+    main { padding-top: 72px; }
+    .site-header{
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+    }
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      height:72px;
+    }
+    .brand-text{
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: inherit;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .brand-sub{
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: .35em;
+      opacity: .65;
+    }
+    .site-nav a{
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
-    <div class="container nav">
-      <div class="brand-block">
-        <a class="brand-text" href="index.html" aria-label="YBYÁ Studio home">YBYÁ STUDIO</a>
-      </div>
-
-      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-menu-toggle>
-        <span></span><span></span><span></span>
-      </button>
-
-      <nav class="site-nav" data-site-nav>
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <div class="container nav">
+    <a class="brand-text" href="index.html" aria-label="YBYÁ Studio home">YBYÁ <span class="brand-sub">STUDIO</span></a>
+    <nav class="site-nav">
+      <a href="index.html" >Home</a>
+      <a href="projects.html" aria-current="page">Projects</a>
+      <a href="contact.html" >Contact</a>
+    </nav>
+  </div>
+</header>
 
   <main class="project-page">
 <section class="project-carousel" data-carousel data-images="images/projects/project-09.jpg,images/projects/project-09.1.jpg,images/projects/project-09.2.jpg,images/projects/project-09.3.jpg">
